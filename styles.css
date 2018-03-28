@@ -1,0 +1,627 @@
+/********************
+********FONTS********
+*********************/
+
+@import url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic');
+@import url('https://fonts.googleapis.com/css?family=Yeseva+One');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+#logo-text, #cnt-promo h1, #cnt-about h1, #cnt-ingredients h1, .menu-item-header, .dish-name, .dish-price, .guest-review h1, #booking-form h1, footer h1 {
+  font-family: 'Yeseva One', cursive;
+}
+
+#menu-items, .guest-review p {
+  font-family: 'Gentium Book Basic', serif;
+}
+
+#promo-btns, #cnt-about p, #cnt-ingredients p, .about-dish, .guest-review h3, #booking-form p, 
+.featured-tag {
+  font-family: 'Lato', serif;
+}
+
+#booking-form label, #booking-form input, footer p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/********************
+***GLOBAL SETTINGS***
+*********************/
+
+* {
+  box-sizing: border-box;
+  /*border: 0.1px dotted black;*/
+}
+
+body {
+  margin: 0;
+  min-width: 1350px;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+body, header, nav, #menu-items, #social-icons, #cnt-promo, #promo-btns, #cnt-about, #cnt-about-desc, #cnt-ingredients, #cnt-ingr-desc, #ingred-imgs, #cnt-menu, .name-price, #cnt-reviews, #cnt-reservations, #res-content, #booking-form, #booking-form form, .form-input, footer {
+  display: flex;
+}
+
+header {
+  padding-left: calc(100%/11);
+  padding-right: calc(100%/11);
+  width: 100%;
+  height: 110px;
+  min-width: 1350px;
+  position: absolute;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+}
+
+#logo-text {
+  font-size: 36px;
+  color: black;
+}
+
+/********************
+******NAVIGATION*****
+*********************/
+
+nav, #social-icons {
+  align-items: center;
+  display: inline-flex;
+}
+
+#menu-items {
+  list-style: none;
+  flex-direction: row;
+  padding-left: 0;
+  margin: 0;
+}
+
+#menu-items a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  font-size: 21px;
+  font-weight: bolder;
+  outline:none;
+  padding: 42px 12px;
+  margin-left: 20px;
+  transition: 1s;
+}
+
+#menu-items a:hover {
+  border-top: 2px solid white;
+  letter-spacing: 2px;
+}
+
+#social-icons i {
+  color: #dab33e;
+  font-size: 21px;
+  padding-left: 8px;
+  padding-right: 8px;
+  cursor: pointer;
+}
+
+/********************
+********PROMO********
+*********************/
+
+#cnt-promo {
+  height: 750px;
+  background-image: url("images/promo-bck.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#cnt-promo h1 {
+  font-size: 90px;
+  color: white;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 0px 1px 2px rgba(1, 1, 1, 0.64);
+}
+
+#promo-btns {
+  flex-direction: row;
+}
+
+#promo-btns button {
+  color: white;
+  font-size: 18px;
+  outline:none;
+  cursor: pointer;
+  transform: perspective(1px) translateZ(0);
+  padding: 23px 53px;
+  margin: 30px 13px;
+  border-style: none;
+}
+
+#promo-btns button:hover, #booking-form button:hover {
+  animation-name: hvr-grow;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes hvr-grow {
+  to {
+    transform: scale(1.1);
+  }
+}
+
+#promo-btns button:first-child {
+  background-color: rgba(1,1,1,0.4);
+}
+
+#promo-btns button:last-child {
+  background-color: rgba(255,255,255,0.4);
+}
+
+/********************
+********ABOUT********
+*********************/
+
+#cnt-about {
+  height: 726px;
+  background-image: url("images/about-bck.png");
+  box-shadow: 0px 0px 50px 0px rgba(1, 1, 1, 0.14) inset;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#cnt-about-desc {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+#cnt-about h1 {
+  color: #cc9900;
+  font-size: 36px;
+  margin: 0 0 15px 0;
+}
+
+#cnt-about p {
+  width: 430px;
+  color: #4c4c4c;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+}
+
+#cnt-about img.cook {
+  margin-left: 75px;
+}
+
+/********************
+*****INGREDIENTS*****
+*********************/
+
+#cnt-ingredients {
+  height: 758px;
+  justify-content: center;
+  align-items: center;
+  background-image: url("images/ingred-bck.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#cnt-ingr-desc {
+  width: 570px;
+  height: 570px;
+  margin-left: 600px;
+  border-style: none;
+  background-color: rgba(1,1,1,0.4);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#cnt-ingredients h1 {
+  color: white;
+  font-size: 36px;
+  margin: 0 0 15px 0;
+}
+
+#cnt-ingredients p {
+  width: 430px;
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 70px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+}
+
+#ingred-imgs {
+  flex-direction: row;
+}
+
+.ingred-pcs {
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.09);
+}
+
+/********************
+***RESTAURANT MENU***
+*********************/
+
+#cnt-menu {
+  height: 995px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-image: url("images/menu-bck.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0px 0px 50px 0px rgba(1, 1, 1, 0.14) inset;
+}
+
+.menu-column {
+  width: 430px;
+  margin-left: 85px;
+  margin-right: 85px;
+}
+
+.menu-group {
+  padding: 10px;
+}
+
+.menu-item {
+  text-align: center;
+}
+
+.menu-item:first-child {
+    margin-bottom: 70px;
+}
+
+.menu-item-header {
+  margin-bottom: 15px;
+  margin-top: 0;
+  font-size: 32px;
+  color: #cc9900;
+}
+
+.featured-item {
+  border: 1px dotted #c89f2d;
+}
+
+.featured-tag {
+  font-size: 14px;
+  color: #f8fafa;
+  background-image: url(images/special-bck.png);
+  width: 68px;
+  position: relative;
+  left: 363px;
+  padding: 3px 13px;
+  margin: 0;
+}
+
+.dish-name, .dish-price {
+  font-size: 20px;
+  color: #c89f2d;
+  margin-top: 0px;
+  margin-bottom: 12px;
+}
+
+.about-dish {
+  margin-top: 14px;
+  margin-bottom: 0px;
+  font-size: 14px;
+  color: #4c4c4c;
+  text-align: justify;
+}
+
+.name-price {
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px dotted #c89f2d;
+}
+
+/********************
+******REVIEW PART****
+*********************/
+
+#cnt-reviews {
+  height: 758px;
+  justify-content: center;
+  align-items: center;
+  background-image: url("images/reviews-bck.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.guest-review {
+  width: 770px;
+  color: white;
+  padding: 80px 70px 0px;
+  text-align: center;
+  background-image: url("images/reviews-msg-bck.png");
+  background-size: cover;
+}
+
+.guest-review h1 {
+  font-size: 36px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.guest-review p {
+  font-size: 26px;
+  margin: 30px 5px;
+  line-height: 45px;
+}
+
+.guest-review h3 {
+  font-size: 18px;
+  font-weight: lighter;
+  padding-bottom: 0px;
+}
+
+.guest-review span {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 96px;
+  display: inline;
+  color: #f2f4f4;
+  opacity: 0.47;
+  position: relative;
+  bottom: 320px;
+  right: 320px;
+}
+
+/********************
+*****RESERVATIONS****
+*********************/
+
+#cnt-reservations {
+  height: 710px;
+  padding: 100px calc(100%/13.5);
+  align-items: center;
+  background-image: url("images/about-bck.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0px 0px 50px 0px rgba(1, 1, 1, 0.14) inset;
+}
+
+#res-content {
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#booking-form {
+  width: 570px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0px 70px;
+}
+
+#booking-form h1 {
+  margin: 0px 0px 10px;
+  font-size: 36px;
+  color: #cc9900;
+}
+
+#booking-form img {
+  padding-bottom: 15px;
+}
+
+#booking-form p {
+  font-size: 16px;
+  color: #4c4c4c;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+#booking-form label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #cc9900;
+  text-align: justify;
+  padding-bottom: 8px;
+}
+
+#booking-form input {
+  width: 200px;
+  padding: 12px;
+  font-size: 16px;
+  font-style: italic;
+  border: 1px solid #dedfdf;
+  background-color: rgba(255,255,255,0.4);
+}
+
+#booking-form input:focus {
+  border: 1px solid #c9a131;
+}
+
+.form-input {
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+#booking-form form {
+  padding-top: 35px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#booking-form button {
+  width: 200px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 16px;
+  transform: perspective(1px) translateZ(0);
+  background-color: #c9a131;
+  color: white;
+  border-style: none;
+  cursor: pointer;
+}
+
+/********************
+*******FOOTER********
+*********************/
+
+footer {
+  height: 320px;
+  background-color: #191919;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  text-align: center;
+  letter-spacing: 0.5px;
+  padding: 52px 216px;
+}
+
+.footer-col-first {
+  width: 370px;
+}
+
+.footer-col-mid, .footer-col-last {
+  width: 230px;
+}
+
+footer img {
+  padding-bottom: 15px;
+}
+
+footer h1 {
+  font-size: 21px;
+  font-weight: lighter;
+  margin: 0 0 15px;
+}
+
+footer p {
+  font-size: 16px;
+  margin: 0 auto 10px;
+}
+
+footer span {
+  font-weight: bold;
+}
+
+#payments, #social-links {
+  margin-top: 45px;
+}
+
+footer i {
+  color: white;
+}
+
+/***************************
+MEDIA RULES FOR DIF. SCREENS
+****************************/
+
+@media screen and (max-width: 800px) {
+  #logo-text {
+    font-size: 40px;
+  }
+
+  #menu-items li, #social-icons i {
+    font-size: 28px;
+  }
+
+  .featured-tag {
+    width: 125px;
+    left: 306px;
+    font-size: 24px;
+  }
+
+  #cnt-about p, #cnt-ingredients p, #booking-form p, #booking-form label, #booking-form button, footer a {
+    font-size: 20px;
+  }
+
+  .about-dish, footer p {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #social-icons {
+    display: none;
+  }
+
+  #menu-items {
+    position: absolute;
+    flex-direction: column;
+    top: 170px;
+    left: 0px;
+    text-align: center;
+  }
+
+  #menu-items a {
+    font-size: 40px;
+  }
+
+  #cnt-promo {
+    padding-left: 30%;
+  }
+
+  #logo-text {
+    font-size: 70px;
+  }
+
+  #promo-btns button {
+    font-size: 34px;
+  }
+
+  #cnt-about h1, #cnt-ingredients h1, .guest-review h1 {
+    font-size: 60px;
+  }
+
+  #cnt-ingr-desc, #cnt-reservations, #cnt-menu, #res-content, footer {
+    justify-content: space-around;
+    height: auto;
+    padding: 20px;
+  }
+
+  #cnt-about p, #cnt-ingredients p, .guest-review p, #booking-form p, #booking-form button, footer h1 {
+    font-size: 32px;
+    line-height: 30px;
+  }
+
+  .menu-item-header {
+    font-size: 52px;
+  }
+
+  .menu-column {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .menu-item:first-child {
+    margin-bottom: 20px;
+  }
+
+  .dish-name, .dish-price, .about-dish, .featured-tag, #booking-form label, .guest-review h3 {
+    font-size: 28px;
+  }
+
+  footer p, #booking-form input {
+    font-size: 20px;
+  }
+
+  [class^="footer-col"] {
+    width: 30%;
+  }
+
+  footer a, #payments i {
+    font-size: 35px;
+  }
+}
