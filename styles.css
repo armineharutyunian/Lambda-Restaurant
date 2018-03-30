@@ -15,8 +15,8 @@
   font-family: 'Gentium Book Basic', serif;
 }
 
-#promo-btns, #cnt-about p, #cnt-ingredients p, .about-dish, .guest-review h3, #booking-form p, 
-.featured-tag {
+#promo-btns, #cnt-about p, #cnt-ingredients p, .about-dish, .guest-review span, #booking-form p, 
+.featured-tag span {
   font-family: 'Lato', serif;
 }
 
@@ -30,6 +30,7 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
   /*border: 0.1px dotted black;*/
 }
 
@@ -88,12 +89,12 @@ nav, #social-icons {
   outline:none;
   padding: 42px 12px;
   margin-left: 20px;
-  transition: 1s;
+  transition: border 0.3s ease-in;
 }
 
 #menu-items a:hover {
   border-top: 2px solid white;
-  letter-spacing: 2px;
+  padding-top: 40px;
 }
 
 #social-icons i {
@@ -135,32 +136,15 @@ nav, #social-icons {
   font-size: 18px;
   outline:none;
   cursor: pointer;
-  transform: perspective(1px) translateZ(0);
+  transition: 0.25s;
   padding: 23px 53px;
   margin: 30px 13px;
   border-style: none;
-}
-
-#promo-btns button:hover, #booking-form button:hover {
-  animation-name: hvr-grow;
-  animation-duration: 0.3s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-@keyframes hvr-grow {
-  to {
-    transform: scale(1.1);
-  }
-}
-
-#promo-btns button:first-child {
-  background-color: rgba(1,1,1,0.4);
-}
-
-#promo-btns button:last-child {
   background-color: rgba(255,255,255,0.4);
+}
+
+#promo-btns button:hover {
+  background-color: rgba(1,1,1,0.4);
 }
 
 /********************
@@ -286,7 +270,7 @@ nav, #social-icons {
 }
 
 .menu-item:first-child {
-    margin-bottom: 70px;
+  margin-bottom: 70px;
 }
 
 .menu-item-header {
@@ -300,15 +284,21 @@ nav, #social-icons {
   border: 1px dotted #c89f2d;
 }
 
+.tag-wrapper {
+  text-align: right;
+}
+
 .featured-tag {
-  font-size: 14px;
-  color: #f8fafa;
   background-image: url(images/special-bck.png);
   width: 68px;
-  position: relative;
-  left: 363px;
+  display: inline-block;
   padding: 3px 13px;
   margin: 0;
+}
+
+.featured-tag span {
+  font-size: 14px;
+  color: #f8fafa;
 }
 
 .dish-name, .dish-price {
@@ -345,6 +335,22 @@ nav, #social-icons {
   background-size: cover;
 }
 
+.review-wrapper {
+  position: relative;
+}
+
+.review-wrapper:before {
+  content: "“";
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 96px;
+  display: inline;
+  color: #f2f4f4;
+  opacity: 0.47;
+  position: absolute;
+  top: -23px;
+  left: -32px;
+}
+
 .guest-review {
   width: 770px;
   color: white;
@@ -366,21 +372,11 @@ nav, #social-icons {
   line-height: 45px;
 }
 
-.guest-review h3 {
+.guest-review span {
   font-size: 18px;
   font-weight: lighter;
-  padding-bottom: 0px;
-}
-
-.guest-review span {
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 96px;
-  display: inline;
-  color: #f2f4f4;
-  opacity: 0.47;
-  position: relative;
-  bottom: 320px;
-  right: 320px;
+  padding-bottom: 90px;
+  display: inline-block;
 }
 
 /********************
@@ -400,7 +396,7 @@ nav, #social-icons {
 #res-content {
   width: 100%;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -467,11 +463,19 @@ nav, #social-icons {
   padding-top: 12px;
   padding-bottom: 12px;
   font-size: 16px;
-  transform: perspective(1px) translateZ(0);
   background-color: #c9a131;
   color: white;
+  transition: 0.25s;
+  position: relative;
   border-style: none;
   cursor: pointer;
+}
+
+#booking-form button:hover {
+  box-shadow: 0 0 0 0.5em rgba(255, 255, 255, 0);
+  outline: 2px solid #c9a131;
+  color: #c9a131;
+  background-color: white;
 }
 
 /********************
@@ -539,8 +543,10 @@ MEDIA RULES FOR DIF. SCREENS
 
   .featured-tag {
     width: 125px;
-    left: 306px;
-    font-size: 24px;
+  }
+
+  .featured-tag span {
+    font-size: 24px
   }
 
   #cnt-about p, #cnt-ingredients p, #booking-form p, #booking-form label, #booking-form button, footer a {
@@ -567,6 +573,26 @@ MEDIA RULES FOR DIF. SCREENS
 
   #menu-items a {
     font-size: 40px;
+    padding: 0px 2px;
+  }
+
+  #menu-items a:hover {
+    padding: 0px 2px;
+    animation-name: hovering;
+    animation-duration: 0.1s;
+    border-style: none;
+  }
+
+  @keyframes hovering {
+    0% {
+      background-color: rgba(255,255,255,0.4);
+    }
+    50% {
+      background-color: rgba(255,255,255,0.4);
+    }
+    100% {
+      background-color: rgba(255,255,255,0.4);
+    }
   }
 
   #cnt-promo {
@@ -581,7 +607,7 @@ MEDIA RULES FOR DIF. SCREENS
     font-size: 34px;
   }
 
-  #cnt-about h1, #cnt-ingredients h1, .guest-review h1 {
+  #cnt-about h1, #cnt-ingredients h1, .guest-review span {
     font-size: 60px;
   }
 
@@ -589,6 +615,12 @@ MEDIA RULES FOR DIF. SCREENS
     justify-content: space-around;
     height: auto;
     padding: 20px;
+  }
+
+  .review-wrapper:before {
+    font-size: 130px;
+    top: -45px;
+    left: -20px;
   }
 
   #cnt-about p, #cnt-ingredients p, .guest-review p, #booking-form p, #booking-form button, footer h1 {
@@ -609,7 +641,7 @@ MEDIA RULES FOR DIF. SCREENS
     margin-bottom: 20px;
   }
 
-  .dish-name, .dish-price, .about-dish, .featured-tag, #booking-form label, .guest-review h3 {
+  .dish-name, .dish-price, .about-dish, .featured-tag span, #booking-form label, .guest-review span {
     font-size: 28px;
   }
 
